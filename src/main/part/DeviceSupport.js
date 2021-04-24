@@ -20,27 +20,30 @@ export const DeviceSupport = () => {
       <div className="btn-group mr-2">
         {
           DEVICE_SUPPORT
-            .map(it1 => (
-              <div className="btn-group">
+            .map((it1, ix1) => (
+              <div className="btn-group"
+                key={it1.name + '-' + ix1}>
                 <a key={it1.name}
                   className={`btn btn-sm btn-${it1.name === device.device ? 'primary' : 'outline-primary'} dropdown-toggle`}
-                  data-toggle="dropdown">
+                  data-toggle="dropdown"
+                  href="#/">
                   <i className={`la ${it1.icon} la-lg mr-2`} />
                   {it1.name}
                 </a>
                 <div className="dropdown-menu dropdown-grid">
                   <div className="dropdown-content">
-                    {it1.support.map(it2 => (
-                      <button
-                        className="dropdown-item border border-primary"
-                        onClick={e => onDiviceSelect(it1, it2)}>
-                        <div>
-                          <i className={`la ${it1.icon} la-lg mr-1`} />
-                          {it2.name}
-                        </div>
-                        <code>{it2.display}</code>
-                      </button>
-                    ))}
+                    {it1.support
+                      .map((it2, ix2) => (
+                        <button onClick={e => onDiviceSelect(it1, it2)}
+                          className="dropdown-item border border-primary"
+                          key={it2.name + '_' + ix2}>
+                          <div>
+                            <i className={`la ${it1.icon} la-lg mr-1`} />
+                            {it2.name}
+                          </div>
+                          <code>{it2.display}</code>
+                        </button>
+                      ))}
                   </div>
                 </div>
               </div>
