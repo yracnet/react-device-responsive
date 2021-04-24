@@ -18,12 +18,6 @@ export const DeviceSupport = () => {
   return (
     <div className="text-center">
       <div className="btn-group mr-2">
-        <button className="btn btn-sm btn-outline-primary"
-          onClick={onDiviceRotate}>
-          <i className={`la la-grip-${device.vertical ? 'vertical' : 'horizontal'} la-lg`} />
-        </button>
-      </div>
-      <div className="btn-group mr-2">
         {
           DEVICE_SUPPORT
             .map(it1 => (
@@ -34,24 +28,33 @@ export const DeviceSupport = () => {
                   <i className={`la ${it1.icon} la-lg mr-2`} />
                   {it1.name}
                 </a>
-                <div className="dropdown-menu dropdown-menu-grid">
-                  {it1.support.map(it2 => (
-                    <button
-                      className="dropdown-item"
-                      onClick={e => onDiviceSelect(it1, it2)}>
-                      <i className={`la ${it1.icon} la-lg mr-1`} />
-                      {it2.name} ({it2.display})
-                    </button>
-                  ))}
+                <div className="dropdown-menu dropdown-grid">
+                  <div className="dropdown-content">
+                    {it1.support.map(it2 => (
+                      <button
+                        className="dropdown-item border border-primary"
+                        onClick={e => onDiviceSelect(it1, it2)}>
+                        <div>
+                          <i className={`la ${it1.icon} la-lg mr-1`} />
+                          {it2.name}
+                        </div>
+                        <code>{it2.display}</code>
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))
         }
       </div>
-      <div className="btn-group">
-        <span className="btn btn-sm text-muted">
+      <div className="btn-group mr-2">
+        <span className="btn btn-sm border border-primary text-muted">
           {device.name} - {device.display}
         </span>
+        <button className="btn btn-sm btn-outline-primary"
+          onClick={onDiviceRotate}>
+          <i className={`la la-${device.vertical ? 'mobile' : 'tablet'} la-lg`} />
+        </button>
       </div>
       <div className="btn-group mr-2">
         <button className="btn btn-sm btn-outline-primary"

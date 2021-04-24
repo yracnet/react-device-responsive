@@ -18,9 +18,13 @@ export const DeviceScreen = ({ children }) => {
   style.transform = 'scale(' + device.scale + ')';
   return (
     <div className="center expand-content">
-      <iframe style={style} src="https://yracnet.github.io/react-grid/" ref={ref}>
+      <iframe style={style}
+        src="https://yracnet.github.io/react-grid/"
+        ref={ref}
+        className="border border-primary">
       </iframe>
-      <div style={style} className="border border-primary">
+      <div style={style}
+        className="border border-primary">
         {children}
       </div>
     </div>

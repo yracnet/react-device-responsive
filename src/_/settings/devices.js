@@ -65,7 +65,7 @@ export const DEVICE_SUPPORT = [
     },
     {
         name: 'Mobile',
-        icon: 'la-android',
+        icon: 'la-mobile',
         support: [
             { width: '991px', height: '568px', display: '991x568', scale: 0.9, name: 'Mobile Breakpoint 991px' },
             { width: '768px', height: '360px', display: '768x360', scale: 0.9, name: 'Mobile Breakpoint 768px' },
