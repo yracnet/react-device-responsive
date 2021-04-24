@@ -1,0 +1,91 @@
+// Icons
+@import "line-awesome/dist/line-awesome/css/line-awesome.css";
+
+// Custom Bootstrap Colors
+@import "_/themes/variables.scss";
+@import "bootstrap/scss/bootstrap.scss";
+@import "animate.css/animate.css";
+
+// Custom Rules
+@import "_/themes/custom.scss";
+
+.expand-view {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+.expand-content {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.grid-responsive {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content 1fr min-content;
+    gap: 5px 0px;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    > header {
+        grid-area: header;
+        display: grid;
+        grid-template-columns: min-content 1fr min-content;
+        grid-template-rows: 1fr;
+        gap: 0px 0px;
+        grid-template-areas: "header-left header-content header-right";
+        .header-left {
+            grid-area: header-left;
+        }
+        .header-right {
+            grid-area: header-right;
+        }
+        .header-content {
+            grid-area: header-content;
+        }
+    }
+    > footer {
+        grid-area: footer;
+    }
+    > main {
+        grid-area: main;
+        display: grid;
+        grid-template-columns: min-content 1fr min-content;
+        grid-template-rows: 1fr;
+        gap: 5px 5px;
+        grid-template-areas: "main-left main-content main-right";
+        .main-right {
+            grid-area: main-right;
+            min-width: 300px;
+        }
+        .main-left {
+            grid-area: main-left;
+            min-width: 300px;
+        }
+        .main-content {
+            grid-area: main-content;
+            align-items: center;
+            display: flex;
+            overflow: auto;
+            > .center {
+                margin: 0 auto;
+            }
+        }
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.text-copy {
+    font-size: 0.8em;
+    width: 100%;
+    display: block;
+    text-align: center;
+    color: white;
+    a {
+        color: #eceeec;
+    }
+}
