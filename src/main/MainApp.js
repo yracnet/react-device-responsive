@@ -18,9 +18,7 @@ function MainApp() {
         <DeviceSupport />
       </header>
       <main>
-
         <DeviceIFrame src="https://yracnet.github.io/react-grid/">
-          <DeviceSupport />
         </DeviceIFrame>
       </main>
     </div>
